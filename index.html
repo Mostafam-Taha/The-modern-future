@@ -105,36 +105,55 @@
             <div class="card-product">
                 <div class="flex-product">
                     <div class="card">
-                        <img src="image/Product/WhatsApp Image 2025-01-30 at 14.17.42.jpeg" alt="لا توجد صورة للمنتج" loading="lazy">
+                        <img src="image/Product/WhatsApp_Image_2025-01-30_14.17.42.jpeg" alt="لا توجد صورة للمنتج" loading="lazy">
                         <div class="name-prod">
-                            <h4>اسم  المنتج</h4>
-                            <button>طلب مثله</button>
+                            <h4>منتج 1</h4>
+                            <button onclick="sendToWhatsApp(this)">طلب مثله</button>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="image/Product/let,s.jpg" alt="لا توجد صورة للمنتج" loading="lazy">
+                        <img src="image/Product/let_s.jpg" alt="لا توجد صورة للمنتج" loading="lazy">
                         <div class="name-prod">
-                            <h4>اسم  المنتج</h4>
-                            <button>طلب مثله</button>
+                            <h4>منتج 2</h4>
+                            <button onclick="sendToWhatsApp(this)">طلب مثله</button>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="image/Product/WhatsApp Image 2025-01-30 at 14_LE_upscale_balanced_x4.jpg" alt="لا توجد صورة للمنتج" loading="lazy">
+                        <img src="image/Product/WhatsApp_Image_2025-01-30_14_LE_upscale_balanced_x4.jpg" alt="لا توجد صورة للمنتج" loading="lazy">
                         <div class="name-prod">
-                            <h4>اسم  المنتج</h4>
-                            <button>طلب مثله</button>
+                            <h4>منتج 3</h4>
+                            <button onclick="sendToWhatsApp(this)">طلب مثله</button>
                         </div>
                     </div>
                     <div class="card">
                         <img src="image/Product/WhatsApp Image 2025-01-30 at 14.17.40.jpeg" alt="لا توجد صورة للمنتج" loading="lazy">
                         <div class="name-prod">
-                            <h4>اسم  المنتج</h4>
-                            <button>طلب مثله</button>
+                            <h4>منتج 4</h4>
+                            <button onclick="sendToWhatsApp(this)">طلب مثله</button>
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
         </div>
     </section>
+    <script>
+        function sendToWhatsApp(button) {
+            var card = button.closest('.card'); // تحديد البطاقة التي تم النقر عليها
+            var productName = card.querySelector('h4').innerText; // اسم المنتج
+            var productImage = card.querySelector('img').src; // رابط الصورة
+            var currentDate = new Date().toLocaleDateString('ar-EG'); // التاريخ الحالي
+        
+            var message = `🔹 *طلب منتج جديد* 🔹\n\n` +
+                          `📌 *اسم المنتج:* ${productName}\n` +
+                          `📅 *تاريخ الطلب:* ${currentDate}\n\n` +
+                          `🖼 *صورة المنتج:* (يرجى فتح الرابط لمشاهدة الصورة)\n${productImage}`;
+        
+            var phoneNumber = "201003504114"; // رقم الواتساب المستهدف
+            var whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        
+            window.open(whatsappURL, '_blank'); // فتح الرابط في نافذة جديدة
+        }
+        </script>
+        
 </body>
 </html>
