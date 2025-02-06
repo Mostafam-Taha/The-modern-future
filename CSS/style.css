@@ -228,6 +228,11 @@ p {
     border-radius: var(--br-border-radias);
 }
 
+.offers .contanier .card-product .flex-product .card .name-prod h4 {
+    text-align: right;
+    margin: 5px 0;
+}
+
 .offers .contanier .card-product .flex-product .card .name-prod button {
     color: #ffffff;
     background-color: var(--br-color-000);
