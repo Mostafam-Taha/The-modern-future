@@ -41,9 +41,17 @@ hr {
 }
 
 /* Style Header */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
 .header {
     margin: 0;
     padding: 0;
+    position: relative;
+    z-index: 1000;
 }
 
 .header .navbar {
@@ -70,6 +78,7 @@ hr {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
+    margin-block: 0;
 }
 
 .header .navbar .un-order-list li a {
@@ -366,7 +375,6 @@ footer {
     border-top: 1px solid #7475792b;
 }
 
-
 footer .contanier {
     display: flex;
     flex-direction: row-reverse;
@@ -431,6 +439,10 @@ footer .contanier .speas-one .icon-call div svg {
 
 footer .contanier .un-order-list {
     list-style:  var(--br-li-none);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer .contanier .un-order-list li {
@@ -479,7 +491,7 @@ footer .copying a {
 
 @media (max-width: 1024px) {
     body {
-        margin: 20px;
+        margin: 0 20px;
     }
 
     .offers .contanier .card-product .flex-product .card img {
@@ -493,10 +505,40 @@ footer .copying a {
 }
 
 @media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .header .un-order-list {
+        padding: 20px;
+        display: block !important;
+        text-align: right;
+        position: fixed;
+        top: 0;
+        right: -350px;
+        width: 250px;
+        height: 100%;
+        background-color: #ffffff;
+        box-shadow: -1px 0px 9px 0px #00000022;
+        transition: right 0.3s ease;
+    }
+
+    .header .un-order-list li {
+        padding: 10px 10px;
+        border: #7475792b 1px solid;
+        border-radius: var(--br-border-radias);
+    }
+
+    .header .un-order-list.active {
+        right: 0; /* إظهار القائمة */
+    }
+
+    .header .un-order-list li {
+        margin: 15px 0;
+    }
+
     .offers .contanier .card-product .flex-product .card img {
         width: 300px;
-        /* width: 100%; */
-
         height: 275px;
         object-fit: fill;
         border-radius: var(--br-border-radias);
@@ -543,14 +585,18 @@ footer .copying a {
 }
 
 @media (max-width: 425px) {
+    body {
+        margin: 0 15px;
+    }
+
     .home .contanier {
-        margin: 75px 0 100px 0;
+        margin: 160px 0 100px 0;
         text-align: center;
     }
 
     .home .contanier .right-con p {
         max-width: 600px;
-        margin: 30px 0 140px 0;
+        margin: 50px 0 140px 0;
         color: var(--br-prag-tag);
     }
 
@@ -624,10 +670,63 @@ footer .copying a {
     .contact-us .contanier .div-contact-switch div {
         margin: 10px;
         padding: 15px 25px;
-        width: 100% ;
+        /* width: 100% ; */
         border-radius: var(--br-border-radias);
         background-color: #17a2b81a;
         color: #17a2b8;
         transition: background 0.3s ease-in-out;
     }
+
+    footer .contanier {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer .contanier .logo {
+        text-align: center;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        font-size: 24px;
+    }
+
+    footer .contanier .speas-one   {
+        display: var(--br-li-none);
+    }
+
+    footer .icon-call {
+        display: flex;
+        flex-direction: row-reverse;
+        margin: 20px 0;
+    }
+    
+    footer .icon-call div {
+        margin: 0 5px;
+        padding: 7px 12px;
+        border-radius: 50%;
+        color: var(--br-color-pri);
+        background-color: var(--br-back-ground);
+        text-align: center;
+        transition: color ease-in-out .3s, background ease-in-out .3s;
+    }
+    
+    footer .icon-call div:hover {
+        color: #ffffff;
+        background-color: var(--br-color-pri);
+    }
+    
+    footer .icon-call div a {
+        color: var(--br-color-pri);
+        transition: color ease-in-out .3s, background ease-in-out .3s;
+    }
+    
+    footer .icon-call div a:hover {
+        color: #ffffff;
+        background-color: var(--br-color-pri);
+    }
+    
+    
+    footer .icon-call div svg {
+        margin: 0 0 -4px 0;
+    }    
 }
